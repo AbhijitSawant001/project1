@@ -15,19 +15,19 @@ public class base_class
 	{
 		if(browserName.equals("Chrome"))
 		{
-			ChromeOptions option=new ChromeOptions();
-			option.addArguments("--disable-notifications");
+			ChromeOptions Option=new ChromeOptions();
+			Option.addArguments("--disable-notifications");
 			System.setProperty("webdriver.chrome.driver",
 					"C:\\Users\\LENOVO\\git\\project1\\project1\\Browsers\\chromedriver.exe");
-			driver=new ChromeDriver(option);
+			driver=new ChromeDriver(Option);
 		}
 		else if (browserName.equals("Edge")) 
 		{
-			EdgeOptions option=new EdgeOptions();
-			option.addArguments("--disable-notifications");
+			EdgeOptions Option=new EdgeOptions();
+			Option.addArguments("--disable-notifications");
 			System.setProperty("webdriver.edge.driver",
 					"C:\\Users\\LENOVO\\git\\project1\\project1\\Browsers\\msedgedriver.exe");
-			driver=new EdgeDriver(option);
+			driver=new EdgeDriver(Option);
 		}
 			
 		driver.manage().window().maximize();
