@@ -18,7 +18,7 @@ public class utilityClass
 {
 	public static String testData(int rowIndex,int cellIndex) throws EncryptedDocumentException, IOException 
 	{
-		FileInputStream file = new FileInputStream("C:\\Users\\Abhijit\\eclipse-workspace\\kite_framework\\Test Data\\zerodha.xlsx");
+		FileInputStream file = new FileInputStream("C:\\Users\\LENOVO\\git\\project1\\project1\\Test Data\\Zerodha.xlsx");
 		Sheet sh = WorkbookFactory.create(file).getSheet("Sheet1");
 		String value = sh.getRow(rowIndex).getCell(cellIndex).getStringCellValue();
 		return value;
@@ -27,14 +27,14 @@ public class utilityClass
 	public static void screenshot(WebDriver driver, int TCID) throws IOException
 	{
 		File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		File dest = new File("C:\\Users\\Abhijit\\eclipse-workspace\\selenium\\screenshots\\TestCase"+TCID+".jpg");
+		File dest = new File("C:\\Users\\LENOVO\\git\\project1\\project1\\screenshots\\TestCase"+TCID+".jpg");
 		FileHandler.copy(src, dest);
 		
 	}
 	
 	public static String dataTC(String key) throws IOException 
 	{
-		FileInputStream file = new FileInputStream("C:\\Users\\Abhijit\\eclipse-workspace\\selenium\\src\\POM_DDF_TestNG_BaseClass_UtilityClass\\loginCredentials.properties");
+		FileInputStream file = new FileInputStream("C:\\Users\\LENOVO\\git\\project1\\project1\\propertyFile.properties");
 		
 		Properties p=new Properties();
 		p.load(file);

@@ -12,6 +12,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import Library_files.base_class;
@@ -33,11 +34,11 @@ public class kiteTestClass extends base_class
 	
 	int TCID;
 	
-	
+	@Parameters("browserName")
 	@BeforeClass
-	public void openBrowser() throws IOException
+	public void openBrowser(String browserName) throws IOException
 	{	
-		 initilizeBrowser();
+		 initilizeBrowser(browserName);
 		 
 		 login1=new kiteLogin1Page(driver);
 		 login2=new kiteLogin2Page(driver);
@@ -50,7 +51,7 @@ public class kiteTestClass extends base_class
 	public void loginToApp() throws EncryptedDocumentException, IOException
 	{
 		login1.inputKiteLogin1PageUserName(utilityClass.dataTC("UN"));
-		login1.inputKiteLoginPage1Password(utilityClass.dataTC("PW"));
+		login1.inputKiteLoginPage1Password(utilityClass.dataTC("PWD"));
 		login1.clickKiteLoginPage1loginButton();
 		login2.inputkiteLogin2PagePin(utilityClass.dataTC("PIN"));
 		login2.clickkiteLogin2PageContinueButton();
@@ -58,7 +59,7 @@ public class kiteTestClass extends base_class
 		
 	}
 	
-	@Test()
+	@Test
 	public void verifyUserName() throws EncryptedDocumentException, IOException
 	{	
 		TCID=12345;
@@ -94,8 +95,9 @@ public class kiteTestClass extends base_class
 	}
 	
 	@AfterClass
-	public void closeBrowser() 
+	public void closeBrowser() throws InterruptedException 
 	{
+		Thread.sleep(2000);
 		driver.close();
 	}
 	
